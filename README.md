@@ -2,7 +2,7 @@
 
 GatoGafas es un pequeño proyecto personal para tener una interfaz sencilla para un concurso casero de preguntas y respuestas.
 
-La interfaz imita al que tiene el concurso de televisión española <<El Caazador>>.
+La interfaz imita al que tiene el concurso de televisión española "El Cazador".
 
 <img src="src/img1.jpg">
 
@@ -21,7 +21,7 @@ La interfaz es muy simple, aunque puede tener bugs si no se usa correctamente.
 > [!IMPORTANT]
 > Al iniciar el programa, selecciona una de las cuatro posibles cantidades (4000, 2000, 1000, 500).
 
-Después de eso, simplemente ve pulsando los botones <<Cazador avanza>> y <<Jugador avanza>> para que vayan avanzando una casilla cada uno de ellos (si aciertan).
+Después de eso, simplemente ve pulsando los botones "Cazador avanza" y "Jugador avanza" para que vayan avanzando una casilla cada uno de ellos (si aciertan).
 
 Para empezar de nuevo, usa el botón de Reset.
 
