@@ -183,3 +183,5 @@ dibujar_tablero()
 
 
 root.mainloop()
+
+# have a nice day!
