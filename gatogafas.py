@@ -2,6 +2,9 @@
 
 import tkinter as tk
 
+
+inicio_elegido = None
+
 # ---------------- CONFIGURACIÓN ----------------
 CASILLAS = [
     "Cazador",
@@ -48,8 +51,19 @@ def dibujar_tablero():
             fill=color
         )
 
-        # Dibujar texto solo si es relevante
-        if texto not in CASILLAS_SIN_TEXTO:
+        # ---------- TEXTO ----------
+        mostrar_texto = True
+
+        # Ocultar cantidades no elegidas
+        if texto in {"4000", "2000", "1000", "500"}:
+            if texto != inicio_elegido:
+                mostrar_texto = False
+
+        # Ocultar texto en casillas intermedias
+        if texto in CASILLAS_SIN_TEXTO:
+            mostrar_texto = False
+
+        if mostrar_texto:
             canvas.create_text(
                 ANCHO // 2,
                 y1 + ALTURA_CASILLA // 2 + 5,
@@ -57,18 +71,19 @@ def dibujar_tablero():
                 font=("Arial", 12, "bold")
             )
 
+
 def elegir_inicio(valor):
-    global pos_jugador
+    global pos_jugador, inicio_elegido
+    inicio_elegido = valor
     pos_jugador = CASILLAS.index(valor)
 
-    # Eliminar botones de inicio
     for boton in botones_inicio:
         boton.destroy()
     botones_inicio.clear()
 
     label_inicio.config(text="Jugador en juego")
-
     dibujar_tablero()
+
 
 def jugador_avanza():
     global pos_jugador
@@ -83,15 +98,17 @@ def cazador_avanza():
         dibujar_tablero()
 
 def resetear():
-    global pos_jugador, pos_cazador
+    global pos_jugador, pos_cazador, inicio_elegido
     pos_jugador = None
     pos_cazador = 0
+    inicio_elegido = None
 
-    # Volver a mostrar botones de inicio
     label_inicio.config(text="Inicio jugador")
     crear_botones_inicio()
-
     dibujar_tablero()
+
+
+
 
 def crear_botones_inicio():
     botones_inicio.clear()
