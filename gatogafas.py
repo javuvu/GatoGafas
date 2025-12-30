@@ -20,8 +20,8 @@ CASILLAS = [
 
 CASILLAS_SIN_TEXTO = {"300", "200", "100"}
 
-ALTURA_CASILLA = 50
-ANCHO = 200
+ALTURA_CASILLA = 100
+ANCHO = 400
 
 # ---------------- ESTADO ----------------
 pos_jugador = None
@@ -69,7 +69,7 @@ def dibujar_tablero():
                 ANCHO // 2,
                 y1 + ALTURA_CASILLA // 2 + 5,
                 #text=texto,
-                font=("Arial", 12, "bold")
+                font=("Arial", 30, "bold")
             )
 
 
@@ -94,7 +94,7 @@ def dibujar_tablero():
                 ANCHO // 2,
                 y1 + ALTURA_CASILLA // 2 + 5,
                 text=texto_a_mostrar,
-                font=("Arial", 12, "bold")
+                font=("Arial", 30, "bold")
             )
 
 
@@ -151,6 +151,7 @@ def crear_botones_inicio():
 
 # ---------------- INTERFAZ ----------------
 root = tk.Tk()
+root.geometry("1400x950")
 root.title("El Cazador")
 
 frame = tk.Frame(root)
@@ -166,8 +167,8 @@ label_inicio.pack(pady=5)
 botones_inicio = []
 crear_botones_inicio()
 
-tk.Button(botones, text="Jugador avanza", command=jugador_avanza).pack(pady=10)
 tk.Button(botones, text="Cazador avanza", command=cazador_avanza).pack(pady=2)
+tk.Button(botones, text="Jugador avanza", command=jugador_avanza).pack(pady=10)
 tk.Button(botones, text="Reset", command=resetear).pack(pady=10)
 
 # Columna derecha
@@ -179,12 +180,6 @@ canvas = tk.Canvas(
 canvas.pack(side="right")
 
 dibujar_tablero()
-
-
-# root = tk.Tk()
-
-# root.geometry("1200x800")
-# root.title("Gato Gafas")
 
 
 root.mainloop()
