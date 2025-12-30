@@ -54,6 +54,7 @@ def dibujar_tablero():
         # ---------- TEXTO ----------
         mostrar_texto = True
 
+
         # Ocultar cantidades no elegidas
         if texto in {"4000", "2000", "1000", "500"}:
             if texto != inicio_elegido:
@@ -67,9 +68,35 @@ def dibujar_tablero():
             canvas.create_text(
                 ANCHO // 2,
                 y1 + ALTURA_CASILLA // 2 + 5,
-                text=texto,
+                #text=texto,
                 font=("Arial", 12, "bold")
             )
+
+
+
+        # ---------- TEXTO ----------
+        texto_a_mostrar = None
+
+        # CASA siempre visible
+        if texto == "CASA":
+            texto_a_mostrar = "CASA"
+
+        # Mostrar el importe elegido SOLO donde está el jugador
+        elif i == pos_jugador and inicio_elegido is not None:
+            texto_a_mostrar = inicio_elegido
+
+        # Mostrar "Cazador" solo arriba
+        elif texto == "Cazador":
+            texto_a_mostrar = "Cazador"
+
+        if texto_a_mostrar:
+            canvas.create_text(
+                ANCHO // 2,
+                y1 + ALTURA_CASILLA // 2 + 5,
+                text=texto_a_mostrar,
+                font=("Arial", 12, "bold")
+            )
+
 
 
 def elegir_inicio(valor):
